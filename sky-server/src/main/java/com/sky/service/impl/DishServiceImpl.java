@@ -122,6 +122,8 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 根据菜Id查询菜品信息 和 口味信息
+     *
+     * @param id 菜品Id
      */
     @Override
     public DishVO getByIdWithFlavor(Long id) {
@@ -141,6 +143,8 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 根据菜Id修改菜品信息 和 口味信息
+     *
+     * @param dishDTO
      */
     @Override
     public void updateWithFlavor(DishDTO dishDTO) {
