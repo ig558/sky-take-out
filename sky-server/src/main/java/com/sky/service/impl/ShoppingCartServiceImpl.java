@@ -8,14 +8,10 @@ import com.sky.entity.ShoppingCart;
 import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.mapper.ShoppingCartMapper;
-import com.sky.service.DishService;
-import com.sky.service.SetmealService;
 import com.sky.service.ShoppingCartService;
-import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -35,8 +31,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     /**
      * 添加购物车
-     *
-     * @param shoppingCartDTO
      */
     @Override
     public void addShoppingCart(ShoppingCartDTO shoppingCartDTO) {
@@ -83,8 +77,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     /**
      * 查看购物车
-     *
-     * @return
      */
     @Override
     public List<ShoppingCart> showShoppingCart() {
@@ -103,8 +95,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     /**
      * 删除购物车中的商品
-     *
-     * @param shoppingCartDTO
      */
     @Override
     public void subShoppingCart(ShoppingCartDTO shoppingCartDTO) {

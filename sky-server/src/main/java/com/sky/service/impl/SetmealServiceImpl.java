@@ -42,19 +42,14 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 条件查询
-     *
-     * @param setmeal
-     * @return
      */
     public List<Setmeal> list(Setmeal setmeal) {
         List<Setmeal> list = setmealMapper.list(setmeal);
         return list;
     }
+
     /**
      * 根据id查询菜品选项
-     *
-     * @param id
-     * @return
      */
     public List<DishItemVO> getDishItemById(Long id) {
         return setmealMapper.getDishItemBySetmealId(id);
@@ -62,8 +57,6 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 新增套餐，同时需要保存套餐和菜品的关联关系
-     *
-     * @param setmealDTO
      */
     @Transactional
     public void saveWithDish(SetmealDTO setmealDTO) {
@@ -88,9 +81,6 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 分页查询
-     *
-     * @param setmealPageQueryDTO
-     * @return
      */
     public PageResult pageQuery(SetmealPageQueryDTO setmealPageQueryDTO) {
         int pageNum = setmealPageQueryDTO.getPage();
@@ -103,8 +93,6 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 批量删除套餐
-     *
-     * @param ids
      */
     @Transactional
     public void deleteBatch(List<Long> ids) {
@@ -126,9 +114,6 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 根据id查询套餐和套餐菜品关系
-     *
-     * @param id
-     * @return
      */
     public SetmealVO getByIdWithDish(Long id) {
         Setmeal setmeal = setmealMapper.getById(id);
@@ -143,8 +128,6 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 修改套餐
-     *
-     * @param setmealDTO
      */
     @Transactional
     public void update(SetmealDTO setmealDTO) {
@@ -170,9 +153,6 @@ public class SetmealServiceImpl implements SetmealService {
 
     /**
      * 套餐起售、停售
-     *
-     * @param status
-     * @param id
      */
     public void startOrStop(Integer status, Long id) {
         //起售套餐时，判断套餐内是否有停售菜品，有停售菜品提示"套餐内包含未启售菜品，无法启售"

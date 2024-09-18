@@ -19,7 +19,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -38,8 +37,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 新增分类
-     *
-     * @param categoryDTO
      */
     @Override
     public void save(CategoryDTO categoryDTO) {
@@ -61,9 +58,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 分页查询
-     *
-     * @param categoryPageQueryDTO
-     * @return
      */
     @Override
     public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
@@ -75,8 +69,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 根据id删除分类
-     *
-     * @param id
      */
     @Override
     public void deleteById(Long id) {
@@ -100,8 +92,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 修改分类
-     *
-     * @param categoryDTO
      */
     @Override
     public void update(CategoryDTO categoryDTO) {
@@ -113,9 +103,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 启用、禁用分类
-     *
-     * @param status
-     * @param id
      */
     @Override
     public void startOrStop(Integer status, Long id) {
@@ -128,9 +115,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 根据类型查询分类
-     *
-     * @param type
-     * @return
      */
     @Override
     public List<Category> list(Integer type) {

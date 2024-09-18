@@ -33,6 +33,9 @@ public class UserController {
     @Autowired
     private JwtProperties jwtProperties;
 
+    /**
+     * 微信登录
+     */
     @ApiOperation("微信登录")
     @PostMapping("/login")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {

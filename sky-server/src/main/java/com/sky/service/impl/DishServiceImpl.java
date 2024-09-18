@@ -103,27 +103,14 @@ public class DishServiceImpl implements DishService {
             throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
         }
 
-
-       /* //删除菜品
-        for (Long id : ids) {
-            dishMapper.deleteById(id);
-            //当前菜品是否有存在口味数据  -- 有删除 --没有不管
-            dishFlavorsMapper.deleteByDishId(id);
-        }
-*/
-
         //删除菜品
         dishMapper.deleteByIds(ids);
         //当前菜品是否有存在口味数据  -- 有删除 --没有不管
         dishFlavorsMapper.deleteByDishIds(ids);
-
-
     }
 
     /**
      * 根据菜Id查询菜品信息 和 口味信息
-     *
-     * @param id 菜品Id
      */
     @Override
     public DishVO getByIdWithFlavor(Long id) {
@@ -143,8 +130,6 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 根据菜Id修改菜品信息 和 口味信息
-     *
-     * @param dishDTO
      */
     @Override
     public void updateWithFlavor(DishDTO dishDTO) {
@@ -185,7 +170,7 @@ public class DishServiceImpl implements DishService {
             dishIds.add(id);
             // select setmeal_id from setmeal_dish where dish_id in (?,?,?)
             List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(dishIds);
-            if (setmealIds != null && setmealIds.size() > 0) {
+            if (setmealIds != null && !setmealIds.isEmpty()) {
                 for (Long setmealId : setmealIds) {
                     Setmeal setmeal = Setmeal.builder()
                             .id(setmealId)
@@ -199,9 +184,6 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 条件查询菜品和口味
-     *
-     * @param dish
-     * @return
      */
     public List<DishVO> listWithFlavor(Dish dish) {
         List<Dish> dishList = dishMapper.list(dish);
@@ -224,9 +206,6 @@ public class DishServiceImpl implements DishService {
 
     /**
      * 根据分类id查询菜品
-     *
-     * @param categoryId
-     * @return
      */
     public List<Dish> list(Long categoryId) {
         Dish dish = Dish.builder()

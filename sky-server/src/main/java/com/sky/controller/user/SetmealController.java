@@ -25,9 +25,6 @@ public class SetmealController {
 
     /**
      * 条件查询
-     *
-     * @param categoryId
-     * @return
      */
     @GetMapping("/list")
     @ApiOperation("根据分类id查询套餐")
@@ -43,9 +40,6 @@ public class SetmealController {
 
     /**
      * 根据套餐id查询包含的菜品列表
-     *
-     * @param id
-     * @return
      */
     @GetMapping("/dish/{id}")
     @ApiOperation("根据套餐id查询包含的菜品列表")

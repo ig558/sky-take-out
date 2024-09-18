@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    /*
+    /**
      * 微信登录
-     * */
+     */
     @Override
     public User wxLogin(UserLoginDTO userLoginDTO) {
         //调用微信服务器接口，获取 openid 是否为空
@@ -60,9 +60,9 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    /*
+    /**
      * 获取微信接口服务,获取微信用户的openid
-     * */
+     */
     private String getOpenid(String code) {
         //调用微信服务器接口，获取 openid 是否为空
         Map<String, String> map = new HashMap<>();

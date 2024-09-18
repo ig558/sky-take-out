@@ -23,17 +23,12 @@ import java.util.List;
 @Slf4j
 @Api(tags = "C端-菜品浏览接口")
 public class DishController {
+
     @Autowired
     private DishService dishService;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
-
     /**
-     * 根据分类id查询菜品
-     *
-     * @param categoryId
-     * @return
+     * 查询菜品
      */
     @GetMapping("/list")
     @ApiOperation("根据分类id查询菜品")
