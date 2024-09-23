@@ -58,7 +58,7 @@ public class DishServiceImpl implements DishService {
         //向口味添加口味 n
 
         List<DishFlavor> flavors = dishDTO.getFlavors();
-        if (flavors != null && flavors.size() > 0) {
+        if (flavors != null && !flavors.isEmpty()) {
             flavors.forEach((DishFlavor dishFlavor) -> {
                 dishFlavor.setDishId(id);
             });
@@ -98,7 +98,7 @@ public class DishServiceImpl implements DishService {
 
         //判断当前菜品是否能够删除 -- 是否被套餐关联了
         List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(ids);
-        if (setmealIds != null && setmealIds.size() > 0) {
+        if (setmealIds != null && !setmealIds.isEmpty()) {
             //当前菜品被套餐关联了，不能删除
             throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
         }
@@ -143,7 +143,7 @@ public class DishServiceImpl implements DishService {
 
         //添加口味数据
         List<DishFlavor> flavors = dishDTO.getFlavors();
-        if (flavors != null && flavors.size() > 0) {
+        if (flavors != null && !flavors.isEmpty()) {
             flavors.forEach(dishFlavor -> {
                 dishFlavor.setDishId(dishDTO.getId());
             });
