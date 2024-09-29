@@ -12,14 +12,17 @@ import com.sky.service.OrderService;
 import com.sky.service.impl.OrderServiceImpl;
 import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderVO;
+import com.sky.vo.TurnoverReportVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.message.ReusableMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -111,6 +114,9 @@ public class OrderController {
         orderService.complete(id);
         return Result.success();
     }
+
     //TODO 订单超过配送距离判断
+
+
 
 }
