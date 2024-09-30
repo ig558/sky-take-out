@@ -8,7 +8,6 @@
         <foreach collection="shoppingCartList" item="sc" separator=",">
             (#{sc.name},#{sc.image},#{sc.userId},#{sc.dishId},#{sc.setmealId},#{sc.dishFlavor},#{sc.number},#{sc.amount},#{sc.createTime})
         </foreach>
-
     </insert>
 
     <select id="list" resultType="com.sky.entity.ShoppingCart">
