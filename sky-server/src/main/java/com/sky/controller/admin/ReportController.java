@@ -32,8 +32,7 @@ public class ReportController {
             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end
     ) {
-        TurnoverReportVO turnoverReportVO = reportService.turnoverStatistics(begin, end);
-        return Result.success(turnoverReportVO);
+        return Result.success(reportService.turnoverStatistics(begin, end));
     }
 
     /**
@@ -45,8 +44,20 @@ public class ReportController {
             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end
     ) {
-        UserReportVO userReportVO = reportService.userStatistics(begin, end);
-        return Result.success(userReportVO);
+        return Result.success(reportService.userStatistics(begin, end));
+    }
+
+    /**
+     * 订单数量、完成率统计
+     */
+    @GetMapping("/ordersStatistics")
+    @ApiOperation("订单数量、完成率统计")
+    public Result ordersStatistics(
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
+            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end
+    ) {
+        return Result.success(reportService.ordersStatistics(begin, end));
+
     }
 
 
