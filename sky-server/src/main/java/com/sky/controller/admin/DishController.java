@@ -91,7 +91,6 @@ public class DishController {
     public Result update(@RequestBody DishDTO dishDTO) {
         log.info("修改菜品:{}", dishDTO);
         dishService.updateWithFlavor(dishDTO);
-
         return Result.success();
     }
 
@@ -103,7 +102,6 @@ public class DishController {
     @CacheEvict(cacheNames = "dish", allEntries = true)
     public Result<String> startOrStop(@PathVariable Integer status, Long id) {
         dishService.startOrStop(status, id);
-
         return Result.success();
     }
 

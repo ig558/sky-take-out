@@ -49,7 +49,7 @@ public class OrderController {
      */
     @GetMapping("/statistics")
     @ApiOperation("订单状态统计")
-    public Result statistics() {
+    public Result<OrderStatisticsVO> statistics() {
         OrderStatisticsVO orderStatisticsVO = orderService.statisticsOrder();
         return Result.success(orderStatisticsVO);
     }
@@ -59,7 +59,7 @@ public class OrderController {
      */
     @GetMapping("/conditionSearch")
     @ApiOperation("订单搜索")
-    public Result conditionSearch(OrdersPageQueryDTO ordersPageQueryDTO) {
+    public Result<PageResult> conditionSearch(OrdersPageQueryDTO ordersPageQueryDTO) {
         PageResult pageResults = orderService.pageQuerySearch(ordersPageQueryDTO);
         return Result.success(pageResults);
     }
@@ -69,7 +69,7 @@ public class OrderController {
      */
     @GetMapping("/details/{id}")
     @ApiOperation("查询订单详情")
-    public Result details(@PathVariable("id") Long id) {
+    public Result<OrderVO> details(@PathVariable("id") Long id) {
         OrderVO details = orderService.details(id);
         return Result.success(details);
     }
@@ -116,7 +116,6 @@ public class OrderController {
     }
 
     //TODO 订单超过配送距离判断
-
 
 
 }
