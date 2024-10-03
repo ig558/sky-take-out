@@ -1,6 +1,7 @@
 package com.sky.websocket;
 
 import org.springframework.stereotype.Component;
+
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class WebSocketServer {
 
     //存放会话对象
-    private static Map<String, Session> sessionMap = new HashMap();
+    private static final Map<String, Session> sessionMap = new HashMap<>();
 
     /**
      * 连接建立成功调用的方法
@@ -42,8 +43,6 @@ public class WebSocketServer {
 
     /**
      * 连接关闭调用的方法
-     *
-     * @param sid
      */
     @OnClose
     public void onClose(@PathParam("sid") String sid) {
@@ -53,8 +52,6 @@ public class WebSocketServer {
 
     /**
      * 群发
-     *
-     * @param message
      */
     public void sendToAllClient(String message) {
         Collection<Session> sessions = sessionMap.values();
